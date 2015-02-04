@@ -1,0 +1,1017 @@
+/**
+ * Site dependencies
+ */
+/**
+ * Core variables
+ * =================================
+ * Edit your color palette and app vars before your begin
+ */
+/**
+ * Colour palette (yeah we're British!)
+ */
+/**
+ * Forms
+ */
+/**
+ * Variables
+ * =================================
+ * Typography
+ * Breakpoints
+ * Paths
+ * Grid setup
+ * Colour palette
+ * Components
+ */
+/**
+ * Typography
+ * =================================
+ * Base sizes:
+ * Set this in pixels (but do not add px),
+ * the font-size mixin will convert to REMS
+ */
+/* Font stacks */
+/**
+ *  Breakpoints
+ * =================================
+ * There are no common breakpoints so these are just a suggestion
+ * You'll need to define your own breakpoints to suit your design
+ */
+/**
+ * Path vars
+ */
+/**
+ * Grid setup
+ * Settings here override & affect the output in scss/partials/components/grid.scss
+ */
+/**
+ * Tables
+ * Customizes the `.table` component with basic values, each used across all table variations.
+ */
+/**
+ * App-specific variables
+ * =================================
+ * Add common vars below here
+ */
+/*
+ * Mixins, helpers and functions
+ * =================================
+ * Most CSS3 vendor prefixed items have a mixin,
+ * but we should not need them if autoprefixer is being used
+ * See mixins/css3.scss for the full list
+ */
+/* ==========================================================================
+   Sass Mixins
+   * Vendor Prefixer
+   * Responsive
+   * CSS3
+   * Utility Mixins
+   * hiDpi
+   * Forms
+   ========================================================================== */
+/* Vendor prefixer */
+/* Responsive mixins */
+/* ==========================================================================
+   Responsive media query mixins
+   * These are used so that we can define separate media-query content
+     for <IE9 and browsers with support for media queries
+   * These are directly related to the global $fix-mqs var defined in
+     kickoff-old-ie.scss
+   * kickoff-old-ie.scss ignores any content in media-queries with values less
+     than the $fix-mqs var value
+   ========================================================================== */
+/*
+   Min-width media query:
+   * Equivalent to: @media screen and (min-width: 20em) { ... }
+   * Usage: @include respond-min(500) { ... };
+   * Argument is a pixel value WITHOUT a unit of measurement
+   ========================================================================== */
+/*
+   Max-width media query:
+   * Equivalent to: @media screen and (max-width: 20em) { ... }
+   * Usage: @include respond-max(500) { ... };
+   * Argument is a pixel value WITHOUT a unit of measurement
+   ========================================================================== */
+/*
+   Min-max-width media query:
+   * Equivalent to: @media screen and (min-width: 10em) and (max-width: 20em) { ... }
+   * Usage: @include respond-min-max(500, 600) { ... };
+   * Arguments are pixel values WITHOUT a unit of measurement
+   ========================================================================== */
+/*
+   Old IE specific mixin
+   * Only use this content if we're dealing with old IE
+   * Usage: @include oldie() { ... }
+   ========================================================================== */
+/* CSS3 */
+/**
+ * Linear Gradient
+ * Usage: @include linear-gradient(#000, #BADA55, horizontal, true);
+ */
+/* ==========================================================================
+   Radial Gradient
+   Usage: @include radial-gradient(#000, #BADA55, true);
+   ========================================================================== */
+/**
+ * vertical-center
+ * Vertically center any element. Needs support for CSS tranforms.
+ * Usage:
+ * @include vertical-center;
+ */
+/**
+ * Utility mixins
+ * Clearfix, REM + fallbacks, @font-face, sizing shortcuts, other helpers
+ */
+/* ==========================================================================
+   Utility Mixins
+   ========================================================================== */
+/* ==========================================================================
+   Typography mixins
+   ========================================================================== */
+/* HiDPI */
+/* FORMS */
+/* CSS Reset  */
+/* ==========================================================================
+   Normalize - CSS reset
+
+   http://github.com/necolas/normalize.css
+   Kickoff uses an amended version of this file.
+   ========================================================================== */
+@import url(http://fonts.googleapis.com/css?family=Francois+One);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+*,
+*::before,
+*::after {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary,
+main {
+  display: block;
+}
+
+audio, canvas, video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+/* ============ */
+/* === BASE === */
+/* ============ */
+body {
+  margin: 0;
+}
+
+a {
+  background: transparent;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:hover, a:active {
+  outline: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+/* Global typography styles */
+/**
+ * Typography
+ * =================================
+ * Body text
+ * Base
+ * Paragraphs
+ * Headings
+ * Lists
+ * Quotes
+ * Links
+ * Helper classes
+ *
+ * Body font size, leadings etc have been set in _variables.scss
+ * Resources:
+ * http://www.gridlover.net/
+ * http://modularscale.com/
+ * http://lamb.cc/typograph/
+ *
+ */
+html {
+  font-size: 18px;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+  font-size: 20px;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #444;
+  -webkit-font-feature-settings: "liga","dlig";
+     -moz-font-feature-settings: "liga","dlig";
+          font-feature-settings: "liga","dlig";
+}
+
+/**
+ * Paragraphs
+ */
+p {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 1.1;
+  text-rendering: optimizelegibility;
+}
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  font-weight: normal;
+}
+
+h1, .h1, .alpha {
+  font-size: 36px;
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 56px;
+}
+
+h2, .h2, .beta {
+  font-size: 30px;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+h3, .h3, .gamma {
+  font-size: 24px;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h4, .h4, .delta,
+h5, .h5, .epsilon,
+h6, .h6, .zeta {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h4, .h4, .delta {
+  font-size: 20px;
+  font-size: 1rem;
+}
+
+h5, .h5, .epsilon {
+  font-size: 16px;
+  font-size: 0.8rem;
+}
+
+h6, .h6, .zeta {
+  font-size: 14px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+* + h1, * + .h1, * + .alpha,
+* + h2, * + .h2, * + .beta,
+* + h3, * + .h3, * + .gamma,
+* + h4, * + .h4, * + .delta,
+* + h5, * + .h5, * + .epsilon,
+* + h6, * + .h6, * + .zeta {
+  margin-top: 28px;
+}
+
+small {
+  font-size: 75%;
+}
+
+/**
+ * Links
+ */
+a, a:link {
+  color: #3498db;
+  text-decoration: none;
+}
+a:visited {
+  color: #3498db;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #196090;
+}
+a:active {
+  color: #196090;
+}
+
+/**
+ * Lists
+ */
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0 0 28px 28px;
+}
+ul ul, ul ol, ol ul, ol ol {
+  margin-left: 56px;
+}
+ul ul, ol ul {
+  list-style-type: circle;
+}
+ul ul ul, ol ul ul {
+  list-style-type: square;
+}
+ul ol, ol ol {
+  list-style-type: upper-roman;
+}
+ul ol ol, ol ol ol {
+  list-style-type: lower-roman;
+}
+ul ul, ul ol, ol ul, ol ol {
+  margin-bottom: 0;
+}
+
+/**
+ * Unstyled lists
+ */
+.unstyled,
+nav ul, nav ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-image: none;
+}
+
+/**
+ * Definition lists
+ */
+dl {
+  margin-bottom: 28px;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 28px;
+}
+
+.dl-horizontal::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.dl-horizontal dt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  float: left;
+  clear: left;
+  width: 220px;
+  text-align: right;
+}
+.dl-horizontal dd {
+  margin-left: 240px;
+}
+
+/**
+ * Miscellaneous
+ */
+hr {
+  margin: 28px 0;
+  border: 0;
+  border-top: 1px solid #b3b3b3;
+  border-bottom: 1px solid #fff;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted #ddd;
+  cursor: help;
+}
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  padding-left: 10px;
+  margin: 28px;
+  border-left: 4px solid #cccccc;
+}
+blockquote p {
+  margin-bottom: 0;
+  font-size: 20px;
+  font-size: 1rem;
+  font-weight: 300;
+}
+blockquote small {
+  display: block;
+  color: #b3b3b3;
+}
+blockquote small:before {
+  content: '\2014 \00A0';
+}
+blockquote.pull-right {
+  float: right;
+  padding-left: 0;
+  padding-right: 10px;
+  border-left: 0;
+  border-right: 4px solid #cccccc;
+}
+blockquote.pull-right, blockquote.pull-right p, blockquote.pull-right small {
+  text-align: right;
+}
+
+q:before, q:after,
+blockquote:before,
+blockquote:after {
+  content: "";
+}
+
+address {
+  display: block;
+  margin-bottom: 28px;
+  font-style: normal;
+}
+
+cite {
+  font-style: normal;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background: #f1c40f;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+samp {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+/**
+ * Utilities
+ */
+.text-centre,
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: #3498db;
+  text-shadow: none;
+}
+
+::selection {
+  color: #fff;
+  background: #3498db;
+  text-shadow: none;
+}
+
+/**
+ * Components:
+ * =================================
+ * Buttons
+ * Lists
+ * Forms
+ * Tables
+ * Code
+ */
+/**
+ * Forms
+ * =================================
+ * Generic form styles
+ * Form inputs and groups
+ * Form field feedback states
+ * Horizontal & vertical forms
+ * Horizontal-specific styles
+ */
+/**
+ * Generic form styles
+ * =================================
+ * Demo: http://tmwagency.github.io/kickoff/demos/forms.html#layout-example-labels-above
+ * Code: https://gist.github.com/mrmartineau/6712577#file-labels-above-inputs-html
+ * Usage:
+  	<div class="form-controlGroup">
+  		<label for="name" class="form-label">Name</label>
+  		<div class="form-controlGroup-inputWrapper">
+  			<input type="text" id="name" placeholder="Zander Martineau" class="form-input"/>
+  		</div>
+  	</div>
+ */
+.form {
+  margin: 0 0 28px;
+}
+
+.form-fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.form-legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 28px;
+  font-size: 30px;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: #444;
+  border: 0;
+  border-bottom: 1px solid #eee;
+  white-space: normal;
+}
+.form-legend small {
+  font-size: 15px;
+  font-size: 0.75rem;
+  color: #b3b3b3;
+}
+
+/**
+ * Form inputs and groups
+ */
+.form-controlGroup {
+  margin-top: 14px;
+  margin-bottom: 9px;
+  list-style-type: none;
+}
+
+.form-legend + .form-controlGroup {
+  margin-top: 28px;
+  -webkit-margin-top-collapse: separate;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #444;
+  font-weight: bold;
+}
+.form-label small {
+  font-weight: normal;
+  color: #919191;
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  height: 2.5em;
+  padding: 0.5em;
+  font-size: 20px;
+  font-size: 1rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+  color: #444;
+  font-weight: normal;
+  vertical-align: baseline;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  -moz-transition: border 200ms ease-in-out;
+       transition: border 200ms ease-in-out;
+}
+.form-input:focus {
+  border-color: #999999;
+  outline: 0;
+  outline: thin dotted \9;
+}
+.form-input[type="image"], .form-input[type="checkbox"], .form-input[type="radio"], .form-input[type="range"] {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 3px 0;
+  line-height: normal;
+  cursor: pointer;
+  border-radius: 0;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+.form-input[type="image"] {
+  border: 0;
+}
+.form-input[type="file"] {
+  width: auto;
+  height: 28px;
+  padding: initial;
+  line-height: initial;
+  border: initial;
+  background-color: #fff;
+  background-color: initial;
+}
+.form-input[type="hidden"] {
+  display: none;
+}
+.form-input[type="color"] {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  padding: 2px;
+}
+.form-input[type="password"] {
+  font-family: sans-serif;
+}
+.form-input[type="range"] {
+  width: 100%;
+}
+.form-input > .radio:first-child, .form-input > .checkbox:first-child {
+  padding-top: 5px;
+}
+.form-input[disabled], .form-input[readonly] {
+  background-color: #e6e6e6;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+/**
+ * Your app styles
+ * =================================
+ * Global styles
+ * Example partial for masthead & footer
+ * Icons - used in conjunction with grunticon
+ */
+body {
+  background-color: #fff;
+}
+
+.toggle {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.toggle--checkbox {
+  display: none;
+}
+
+.toggle--btn {
+  display: block;
+  margin: 0 auto;
+  -moz-transition: all 350ms ease-in;
+       transition: all 350ms ease-in;
+}
+.toggle--btn:before, .toggle--btn:after {
+  content: '';
+  display: block;
+}
+.toggle--btn, .toggle--btn:before, .toggle--btn:after {
+  -moz-transition: all 250ms ease-in;
+       transition: all 250ms ease-in;
+}
+
+/*
+	Day/Night toggle animation
+ */
+@-webkit-keyframes bounceIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  50% {
+    opacity: 100;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  55% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    opacity: 100;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-moz-keyframes bounceIn {
+  0% {
+    opacity: 0;
+    -moz-transform: scale(0.3);
+         transform: scale(0.3);
+  }
+  50% {
+    opacity: 100;
+    -moz-transform: scale(1.1);
+         transform: scale(1.1);
+  }
+  55% {
+    -moz-transform: scale(1.1);
+         transform: scale(1.1);
+  }
+  75% {
+    -moz-transform: scale(0.9);
+         transform: scale(0.9);
+  }
+  100% {
+    opacity: 100;
+    -moz-transform: scale(1);
+         transform: scale(1);
+  }
+}
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+       -moz-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  50% {
+    opacity: 100;
+    -webkit-transform: scale(1.1);
+       -moz-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  55% {
+    -webkit-transform: scale(1.1);
+       -moz-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+       -moz-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    opacity: 100;
+    -webkit-transform: scale(1);
+       -moz-transform: scale(1);
+            transform: scale(1);
+  }
+}
+.toggle--daynight .toggle--btn {
+  position: relative;
+  height: 70px;
+  width: 125px;
+  border: 5px solid #1c1c1c;
+  border-radius: 70px;
+  background-color: #3c4145;
+}
+.toggle--daynight .toggle--btn:before {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 5px solid #e3e3c7;
+}
+.toggle--daynight .toggle--btn:after {
+  position: absolute;
+  top: 62%;
+  left: 39px;
+  z-index: 10;
+  width: 11.2px;
+  height: 11.2px;
+  opacity: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: #fff 0 0, #fff 3px 0, #fff 6px 0, #fff 9px 0, #fff 11px 0, #fff 14px 0, #fff 16px 0, #fff 21px -1px 0 1px, #fff 16px -7px 0 -2px, #fff 7px -7px 0 1px, #d3d3d3 0 0 0 4px, #d3d3d3 6px 0 0 4px, #d3d3d3 11px 0 0 4px, #d3d3d3 16px 0 0 4px, #d3d3d3 21px -1px 0 5px, #d3d3d3 16px -7px 0 1px, #d3d3d3 7px -7px 0 5px;
+  -moz-transition: opacity 100ms ease-in;
+       transition: opacity 100ms ease-in;
+}
+.toggle--daynight .toggle--checkbox:checked + .toggle--btn {
+  background-color: #9ee3fb;
+  border: 5px solid #86c3d7;
+}
+.toggle--daynight .toggle--checkbox:checked + .toggle--btn:before {
+  left: 55px;
+  background-color: #ffdf6d;
+  border: 5px solid #e1c348;
+}
+.toggle--daynight .toggle--checkbox:checked + .toggle--btn:after {
+  opacity: 100;
+  -webkit-animation-name: bounceIn;
+     -moz-animation-name: bounceIn;
+          animation-name: bounceIn;
+  -webkit-animation-duration: 0.60s;
+     -moz-animation-duration: 0.60s;
+          animation-duration: 0.60s;
+  -webkit-animation-delay: 0.10s;
+     -moz-animation-delay: 0.10s;
+          animation-delay: 0.10s;
+  -webkit-animation-fill-mode: backwards;
+     -moz-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  -webkit-animation-timing-function: ease-in-out;
+     -moz-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+input[type="checkbox"] {
+  outline: 0;
+}
+
+/**
+ * Helper/utility classes
+ * =================================
+ */
+/**
+ * Utilities
+ * Non-semantic helper classes
+ */
+/**
+ * Clearfix
+ * http://www.cssmojo.com/latest_new_clearfix_so_far/
+ * See mixins/_utility.scss for a mixin version of this
+ */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.ir {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 0;
+  direction: ltr;
+  display: block;
+  overflow: hidden;
+  text-align: left;
+  text-indent: -999em;
+}
+
+.ir br {
+  display: none;
+}
+
+.is-hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.is-shown {
+  display: block;
+}
+
+.is-visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.is-visuallyHidden.focusable:active, .is-visuallyHidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.is-invisible {
+  visibility: hidden;
+}
+
+.l-floatLeft {
+  float: left;
+}
+
+.l-floatRight {
+  float: right;
+}
+
+.l-clear {
+  clear: both;
+  float: none;
+}
+
+.l-mb0 {
+  margin-bottom: 0 !important;
+}
+
+.l-mt0 {
+  margin-top: 0 !important;
+}
+
+/**
+ * Responsive Utilities
+ */
+@-ms-viewport {
+  width: device-width;
+}
+* {
+  -webkit-tap-highlight-color: #3498db !important;
+}
+
+/* A hack for HTML5 contenteditable attribute on mobile */
+textarea[contenteditable] {
+  -webkit-appearance: none;
+}
+
+@media screen and (max-width: 400px) {
+  @-ms-viewport {
+    width: 320px;
+  }
+}
+
+/*# sourceMappingURL=kickoff-old-ie.css.map */

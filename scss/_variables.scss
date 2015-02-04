@@ -1,0 +1,107 @@
+/**
+ * Variables
+ * =================================
+ * Typography
+ * Breakpoints
+ * Paths
+ * Grid setup
+ * Colour palette
+ * Components
+ */
+
+/**
+ * Typography
+ * =================================
+ * Base sizes:
+ * Set this in pixels (but do not add px),
+ * the font-size mixin will convert to REMS
+ */
+$font-size-base                : 20;
+$font-size-base-px             : $font-size-base * 1px;
+$font-size-base-narrow         : $font-size-base - 2;
+$font-size-base-narrow-px      : $font-size-base-narrow * 1px;
+
+$leading-base                  : 1.4;
+$line-height-base              : round($font-size-base * $leading-base); // 20 * 1.4
+$line-height-base-px           : $line-height-base * 1px;
+
+$h1-size                       : 36 !default;
+$h2-size                       : 30 !default;
+$h3-size                       : 24 !default;
+$h4-size                       : 20 !default;
+$h5-size                       : 16 !default;
+$h6-size                       : 14 !default;
+
+// Useful to set here when bold webfonts come as 400 font-weight.
+$font-weight-bold             : bold;
+
+
+/* Font stacks */
+$font-family-sans             : "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif            : Georgia, "Times New Roman", Times, serif;
+$font-family-mono             : Menlo, Monaco, "Courier New", monospace;
+
+$font-family-base             : $font-family-sans;
+$font-family-alt              : $font-family-serif;
+
+$font-family-headings         : inherit; // using inherit will use $font-family-base for all headings
+$font-weight-headings         : bold;    // instead of browser default, bold
+$line-height-headings         : 1.1;
+
+
+/**
+ *  Breakpoints
+ * =================================
+ * There are no common breakpoints so these are just a suggestion
+ * You'll need to define your own breakpoints to suit your design
+ */
+$bp-narrow            : 400;  // Set in px
+$bp-mid               : 768;  // Set in px
+$bp-wide              : 992;  // Set in px
+$bp-huge              : 1600; // Set in px
+$bp-single-col        : $bp-mid; // Break to single column
+
+
+/**
+ * Path vars
+ */
+$img-path                     : "/img"; // Usage: background: url('#{$img-path}/img.jpg') 0 0 no-repeat;
+
+
+/**
+ * Grid setup
+ * Settings here override & affect the output in scss/partials/components/grid.scss
+ */
+
+// Grid defaults
+$grid-column-count            : 12    ; // Total column count
+$grid-gutter-width            : 20    ; // [in pixels]
+$grid-max-width               : 1000  ; // [in pixels]
+$grid-min-width               : 1000  ; // [in pixels] Minimum width for grid in <IE9
+$grid-margin                  : 0     ; // [in pixels] Space outside the grid
+
+// Column Padding
+$grid-column-padding          : 10    ; // [in pixels]
+$grid-column-padding-unit     : 'px'  ; // [in pixels or percent] Specify your unit of measurement for column padding
+$nested-column-padding        : false ; // Remove padding on nested columns so they are aligned correctly. Set this to [false] to enable it.
+
+// Choose your grid options
+$using-push-pull-columns      : false ; // Allow columns to be pushed & pulled
+$using-offsetcolumns          : false ; // Allow columns to be offset
+$using-splits-and-shunts      : false ; // Use Splits & Shunts for responsive web design
+
+
+/**
+ * Tables
+ * Customizes the `.table` component with basic values, each used across all table variations.
+ */
+$table-cell-padding           : 8px !default; // Padding for `<th>`s and `<td>`s.
+$table-condensed-cell-padding : 5px !default; // Padding for cells in `.table-condensed`.
+
+
+/**
+ * App-specific variables
+ * =================================
+ * Add common vars below here
+ */
+$link-transition: all 100ms ease-in-out;

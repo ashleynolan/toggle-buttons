@@ -1,0 +1,184 @@
+$color-bg: #fff;
+
+$white: #fff;
+$green: #53d76a;
+$grey: #d3d3d3;
+
+// Define the fonts used in the Pen
+@import url(http://fonts.googleapis.com/css?family=Francois+One);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+
+
+body {
+	background-color: $color-bg;
+}
+
+.toggle {
+	display: block;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.toggle--checkbox {
+	display: none;
+}
+
+
+.toggle--btn {
+	display: block;
+	margin: 0 auto;
+
+	transition: all 350ms ease-in;
+
+	&:before,
+	&:after {
+		content: '';
+		display: block;
+	}
+
+	&,
+	&:before,
+	&:after {
+		transition: all 250ms ease-in;
+	}
+}
+
+
+/*
+	Day/Night toggle animation
+ */
+
+$toggleHeight: 70px;
+$toggleWidth: 125px;
+$borderWidth: 5px;
+$toggleBtnRadius: $toggleHeight - 14px;
+
+$bgColor--night: #3c4145;
+$borderColor--night: #1c1c1c;
+$toggleBtn-bgColor--night: #fff;
+$toggleBtn-borderColor--night: #e3e3c7;
+
+$bgColor--day: #9ee3fb;
+$borderColor--day: #86c3d7;
+$toggleBtn-bgColor--day: #ffdf6d;
+$toggleBtn-borderColor--day: #e1c348;
+
+$cloud-borderColor: #d3d3d3;
+$cloud-bgColor: #fff;
+
+@keyframes bounceIn {
+    0% {
+    	opacity: 0;
+        transform: scale(.3);
+    }
+    50% {
+    	opacity: 100;
+        transform: scale(1.1);
+    }
+    55% {
+        transform: scale(1.1);
+    }
+    75% {
+        transform: scale(.9);
+    }
+    100% {
+    	opacity: 100;
+        transform: scale(1);
+    }
+}
+
+.toggle--daynight {
+	.toggle--btn {
+		position: relative;
+		height: $toggleHeight;
+		width: $toggleWidth;
+		border: $borderWidth solid $borderColor--night;
+		border-radius: $toggleHeight;
+
+		background-color: $bgColor--night;
+
+		//toggle button
+		&:before {
+			position: absolute;
+			top: 2px;
+			left: 4px;
+			width: $toggleBtnRadius;
+			height: $toggleBtnRadius;
+			border-radius: 50%;
+
+			background-color: $toggleBtn-bgColor--night;
+			border: $borderWidth solid $toggleBtn-borderColor--night;
+		}
+		&:after {
+			position: absolute;
+			top: 62%;
+			left: $toggleWidth - ($toggleBtnRadius) - ($borderWidth * 2) - 20px;
+			z-index: 10;
+			width: $toggleBtnRadius / 5;
+			height: $toggleBtnRadius / 5;
+			opacity: 0;
+			background-color: $cloud-bgColor;
+			border-radius: 50%;
+
+			box-shadow: $cloud-bgColor 0 0,
+						$cloud-bgColor 3px 0,
+						$cloud-bgColor 6px 0,
+						$cloud-bgColor 9px 0,
+						$cloud-bgColor 11px 0,
+						$cloud-bgColor 14px 0,
+						$cloud-bgColor 16px 0,
+						$cloud-bgColor 21px -1px 0 1px,
+						$cloud-bgColor 16px -7px 0 -2px,
+						$cloud-bgColor 7px -7px 0 1px,
+
+						$cloud-borderColor 0 0 0 4px,
+						$cloud-borderColor 6px 0 0 4px,
+						$cloud-borderColor 11px 0 0 4px,
+						$cloud-borderColor 16px 0 0 4px,
+						$cloud-borderColor 21px -1px 0 5px,
+						$cloud-borderColor 16px -7px 0 1px,
+						$cloud-borderColor 7px -7px 0 5px;
+
+			transition: opacity 100ms ease-in;
+		}
+	}
+
+	.toggle--checkbox {
+		&:checked + .toggle--btn {
+			background-color: $bgColor--day;
+			border: $borderWidth solid $borderColor--day;
+
+			&:before {
+				left: $toggleWidth - ($toggleBtnRadius) - ($borderWidth * 2) - 4px;
+				background-color: $toggleBtn-bgColor--day;
+				border: $borderWidth solid $toggleBtn-borderColor--day;
+			}
+			&:after {
+				opacity: 100;
+				animation-name: bounceIn;
+				animation-duration: 0.60s;
+				animation-delay: 0.10s;
+			    animation-fill-mode: backwards;
+			    animation-timing-function: ease-in-out;
+			}
+		}
+	}
+}
+
+
+
+
+input[type="checkbox"] {
+	outline: 0;
+
+	&:after {
+	}
+
+
+	&:checked {
+
+
+		&:after {
+		}
+	}
+}
