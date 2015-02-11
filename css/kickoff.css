@@ -764,6 +764,9 @@ h1 + .headingOuter {
   margin-top: 10px;
 }
 
+/* ==========================================================================
+   Some defaults across all toggle demos
+   ========================================================================== */
 .toggle {
   display: block;
   text-align: center;
@@ -780,6 +783,9 @@ h1 + .headingOuter {
   font-size: 1.4em;
   -moz-transition: all 350ms ease-in;
        transition: all 350ms ease-in;
+}
+.toggle--btn:hover {
+  cursor: pointer;
 }
 
 .toggle--btn, .toggle--btn:before, .toggle--btn:after,
@@ -805,14 +811,14 @@ h1 + .headingOuter {
    Day/Night and Gender toggle buttons
    ========================================================================== */
 .toggle--daynight .toggle--btn,
-.toggle--gender .toggle--btn {
+.toggle--like .toggle--btn {
   position: relative;
   height: 70px;
   width: 125px;
   border-radius: 70px;
 }
 .toggle--daynight .toggle--btn:before,
-.toggle--gender .toggle--btn:before {
+.toggle--like .toggle--btn:before {
   position: absolute;
   top: 2px;
   left: 4px;
@@ -861,12 +867,92 @@ h1 + .headingOuter {
     box-shadow: #fff 30px -3px 0 0, #fff 12px 10px 0 -1px, rgba(255, 255, 255, 0.1) 38px 18px 0 1px, #fff 32px 34px 0 0, rgba(255, 255, 255, 0.1) 20px 24px 0 -1.5px, #fff 5px 38px 0 1px;
   }
 }
+@-webkit-keyframes bounceIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  50% {
+    opacity: 100;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  55% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    opacity: 100;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-moz-keyframes bounceIn {
+  0% {
+    opacity: 0;
+    -moz-transform: scale(0.3);
+         transform: scale(0.3);
+  }
+  50% {
+    opacity: 100;
+    -moz-transform: scale(1.1);
+         transform: scale(1.1);
+  }
+  55% {
+    -moz-transform: scale(1.1);
+         transform: scale(1.1);
+  }
+  75% {
+    -moz-transform: scale(0.9);
+         transform: scale(0.9);
+  }
+  100% {
+    opacity: 100;
+    -moz-transform: scale(1);
+         transform: scale(1);
+  }
+}
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+       -moz-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  50% {
+    opacity: 100;
+    -webkit-transform: scale(1.1);
+       -moz-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  55% {
+    -webkit-transform: scale(1.1);
+       -moz-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+       -moz-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    opacity: 100;
+    -webkit-transform: scale(1);
+       -moz-transform: scale(1);
+            transform: scale(1);
+  }
+}
 .toggle--daynight .toggle--feature {
+  display: block;
   position: absolute;
   top: 9px;
   left: 52.5%;
   z-index: 20;
-  display: block;
   width: 4px;
   height: 4px;
   border-radius: 50%;
@@ -933,22 +1019,71 @@ h1 + .headingOuter {
           transform: rotate(70deg);
 }
 
-.toggle--gender .toggle--btn {
-  border: 5px solid #666;
-  background-color: #333;
+/* ==========================================================================
+   Like specific styling
+   ========================================================================== */
+.toggle--like {
+  position: relative;
 }
-.toggle--gender .toggle--btn:before {
-  background-color: #f1f1f1;
-  border: 5px solid #ccc;
+.toggle--like .toggle--btn {
+  border: 5px solid #0865B0;
+  background-color: #3498db;
 }
-.toggle--gender .toggle--checkbox:checked + .toggle--btn {
-  background-color: #fff;
-  border: 5px solid #333;
+.toggle--like .toggle--btn:before {
+  background-color: #f2dd68;
+  border: 5px solid #e5ce5e;
 }
-.toggle--gender .toggle--checkbox:checked + .toggle--btn:before {
-  background-color: #eee;
-  border: 5px solid #bbb;
-  left: 55px;
+.toggle--like .toggle--feature {
+  position: absolute;
+  left: 14px;
+  top: 32%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #995710;
+  box-shadow: 28px 0 0 0 #995710;
+}
+.toggle--like .toggle--feature:before {
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 36px;
+  height: 17px;
+  background-color: #995710;
+  border-radius: 36px 36px 0 0;
+}
+.toggle--like .toggle--feature:after {
+  position: absolute;
+  left: 9px;
+  top: 21px;
+  width: 17px;
+  height: 7px;
+  background-color: #d8aa2b;
+  border-radius: 17px 17px 0 0;
+}
+.toggle--like .toggle--checkbox:checked + .toggle--btn {
+  background-color: #e25d5d;
+  border: 5px solid #AD1000;
+}
+.toggle--like .toggle--checkbox:checked + .toggle--btn:before {
+  -webkit-transform: translate(51px);
+     -moz-transform: translate(51px);
+      -ms-transform: translate(51px);
+          transform: translate(51px);
+}
+.toggle--like .toggle--checkbox:checked + .toggle--btn .toggle--feature {
+  -webkit-transform: translateX(53px);
+     -moz-transform: translateX(53px);
+      -ms-transform: translateX(53px);
+          transform: translateX(53px);
+}
+.toggle--like .toggle--checkbox:checked + .toggle--btn .toggle--feature:before {
+  border-radius: 0 0 36px 36px;
+  top: 11px;
+}
+.toggle--like .toggle--checkbox:checked + .toggle--btn .toggle--feature:after {
+  top: 21px;
+  border-radius: 50%/50%;
 }
 
 /* ==========================================================================
@@ -963,6 +1098,7 @@ h1 + .headingOuter {
   height: 70px;
   font-family: 'PT Sans', Sans Serif;
   text-transform: uppercase;
+  font-weight: bold;
   border-radius: 40px;
   border: 1px solid #8c8c8c;
   border-right: 2px solid #8c8c8c;
@@ -999,7 +1135,7 @@ h1 + .headingOuter {
 }
 
 /* ==========================================================================
-   Toggle - knob stylee
+   Toggle - knob button style
    ========================================================================== */
 .toggle--knob .toggle--btn {
   position: relative;
@@ -1066,6 +1202,176 @@ h1 + .headingOuter {
 }
 .toggle--knob .toggle--checkbox:checked + .toggle--btn .toggle--feature:after {
   right: 20%;
+}
+
+/* ==========================================================================
+   Toggle - switch stylee
+   ========================================================================== */
+.toggle--switch .toggle--btn {
+  position: relative;
+  width: 120px;
+  height: 44px;
+  font-family: 'PT Sans', Sans Serif;
+  text-transform: uppercase;
+  color: #fff;
+  background: -moz-linear-gradient(0deg, #a4bf4d 0%, #a4bf4d 50%, #ca5046 50%, #ca5046 200%);
+  background: linear-gradient(90deg, #a4bf4d 0%, #a4bf4d 50%, #ca5046 50%, #ca5046 200%);
+  background-position: -80px 0;
+  background-size: 200% 100%;
+  box-shadow: inset 0 0px 22px -8px #111;
+}
+.toggle--switch .toggle--btn, .toggle--switch .toggle--btn:before {
+  border-radius: 4px;
+}
+.toggle--switch .toggle--btn:before {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+     -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 52px;
+  height: 44px;
+  border: 2px solid #202027;
+  background-image: -moz-linear-gradient(0deg, transparent 50%, rgba(255, 255, 255, 0.15) 100%);
+  background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.15) 100%);
+  background-color: #2b2e3a;
+  background-size: 5px 5px;
+  text-indent: -100%;
+}
+.toggle--switch .toggle--feature {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 44px;
+  text-shadow: 0 1px 2px #666;
+}
+.toggle--switch .toggle--feature:before, .toggle--switch .toggle--feature:after {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+     -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.toggle--switch .toggle--feature:before {
+  content: attr(data-label-on);
+  left: -60%;
+}
+.toggle--switch .toggle--feature:after {
+  content: attr(data-label-off);
+  right: 16%;
+}
+.toggle--switch .toggle--checkbox {
+  display: none;
+}
+.toggle--switch .toggle--checkbox:checked + .toggle--btn {
+  background-position: 0 0;
+}
+.toggle--switch .toggle--checkbox:checked + .toggle--btn:before {
+  left: -moz-calc(100% - 52px);
+  left: calc(100% - 52px);
+}
+.toggle--switch .toggle--checkbox:checked + .toggle--btn .toggle--feature:before {
+  left: 20%;
+}
+.toggle--switch .toggle--checkbox:checked + .toggle--btn .toggle--feature:after {
+  right: -60%;
+}
+
+/* ==========================================================================
+   Push button toggle
+   ========================================================================== */
+.toggle--push .toggle--btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: #f9f8f6;
+  border-radius: 50%;
+  box-shadow: 0 5px 10px 0px #333, 0 15px 20px 0px #cccccc;
+}
+.toggle--push .toggle--btn, .toggle--push .toggle--btn:before, .toggle--push .toggle--btn:after {
+  -moz-transition-duration: 150ms;
+       transition-duration: 150ms;
+}
+.toggle--push .toggle--btn:before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 22.72727273px;
+  height: 22.72727273px;
+  border-radius: 50%;
+  background-color: #FF9900;
+  box-shadow: inset 0 0 0 5px #ccc, inset 0 0 0 14px #f9f8f6;
+}
+.toggle--push .toggle--btn:after {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 4px;
+  height: 12px;
+  background-color: #ccc;
+  box-shadow: 0 0 0 2.5px #f9f8f6;
+}
+.toggle--push .toggle--btn:hover:before {
+  box-shadow: inset 0 0 0 5px #b3b3b3, inset 0 0 0 14px #f9f8f6;
+}
+.toggle--push .toggle--btn:hover:after {
+  background-color: #b3b3b3;
+}
+.toggle--push .toggle--checkbox {
+  display: none;
+}
+.toggle--push .toggle--checkbox:checked + .toggle--btn {
+  box-shadow: 0 2px 5px 0px gray, 0 15px 20px 0px transparent;
+}
+.toggle--push .toggle--checkbox:checked + .toggle--btn:before {
+  box-shadow: inset 0 0 0 5px #FF9900, inset 0 0 0 14px #f9f8f6;
+}
+.toggle--push .toggle--checkbox:checked + .toggle--btn:after {
+  background-color: #FF9900;
+}
+
+.toggle--push--glow {
+  background: #111;
+  padding: 50px 0;
+  margin-bottom: -50px;
+}
+.toggle--push--glow .toggle--btn {
+  background-color: #dfdfdf;
+  box-shadow: 0 5px 10px 0px #333, 0 0 0 3px #444444, 0 0 8px 2px transparent, 0 0 0 6px #919191;
+}
+.toggle--push--glow .toggle--btn:before {
+  box-shadow: inset 0 0 0 5px #aaa, inset 0 0 0 14px #dfdfdf;
+}
+.toggle--push--glow .toggle--btn:after {
+  background-color: #aaa;
+  box-shadow: 0 0 0 2.5px #dfdfdf;
+}
+.toggle--push--glow .toggle--btn:hover:before {
+  box-shadow: inset 0 0 0 5px #777777, inset 0 0 0 14px #dfdfdf;
+}
+.toggle--push--glow .toggle--btn:hover:after {
+  background-color: #777777;
+}
+.toggle--push--glow .toggle--checkbox:checked + .toggle--btn {
+  box-shadow: 0 0px 8px 0 #0072ad, 0 0 0 3px #0094e0, 0 0 30px 0 #0094e0, 0 0 0 6px #777777;
+}
+.toggle--push--glow .toggle--checkbox:checked + .toggle--btn:before {
+  box-shadow: inset 0 0 0 5px #0094e0, inset 0 0 0 14px #dfdfdf;
+}
+.toggle--push--glow .toggle--checkbox:checked + .toggle--btn:after {
+  background-color: #0094e0;
 }
 
 /* ==========================================================================
@@ -1145,88 +1451,6 @@ h1 + .headingOuter {
   color: #f1f1f1;
 }
 
-@-webkit-keyframes bounceIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0.3);
-            transform: scale(0.3);
-  }
-  50% {
-    opacity: 100;
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-  55% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-  75% {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-  }
-  100% {
-    opacity: 100;
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-
-@-moz-keyframes bounceIn {
-  0% {
-    opacity: 0;
-    -moz-transform: scale(0.3);
-         transform: scale(0.3);
-  }
-  50% {
-    opacity: 100;
-    -moz-transform: scale(1.1);
-         transform: scale(1.1);
-  }
-  55% {
-    -moz-transform: scale(1.1);
-         transform: scale(1.1);
-  }
-  75% {
-    -moz-transform: scale(0.9);
-         transform: scale(0.9);
-  }
-  100% {
-    opacity: 100;
-    -moz-transform: scale(1);
-         transform: scale(1);
-  }
-}
-
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0.3);
-       -moz-transform: scale(0.3);
-            transform: scale(0.3);
-  }
-  50% {
-    opacity: 100;
-    -webkit-transform: scale(1.1);
-       -moz-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-  55% {
-    -webkit-transform: scale(1.1);
-       -moz-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-  75% {
-    -webkit-transform: scale(0.9);
-       -moz-transform: scale(0.9);
-            transform: scale(0.9);
-  }
-  100% {
-    opacity: 100;
-    -webkit-transform: scale(1);
-       -moz-transform: scale(1);
-            transform: scale(1);
-  }
-}
 /**
  * Helper/utility classes
  * =================================

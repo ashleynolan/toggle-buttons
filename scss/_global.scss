@@ -1,5 +1,3 @@
-$color-bg: #fff;
-
 // Define the fonts used in the Pen
 @import url(http://fonts.googleapis.com/css?family=Francois+One);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans);
@@ -11,6 +9,7 @@ $color-bg: #fff;
   src: local('Audiowide'), local('Audiowide-Regular'), url(http://themes.googleusercontent.com/static/fonts/audiowide/v2/8XtYtNKEyyZh481XVWfVOj8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
 }
 
+$color-bg: #fff; //background for the demo
 
 body {
 	font-size: 62.5%;
@@ -39,7 +38,10 @@ body {
   }
 }
 
-// SOME DEFAULTS ACROSS ALL TOGGLES
+/* ==========================================================================
+   Some defaults across all toggle demos
+   ========================================================================== */
+
 .toggle {
 	display: block;
 	text-align: center;
@@ -55,6 +57,10 @@ body {
 		font-size: 1.4em;
 
 		transition: all 350ms ease-in;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 
 	.toggle--btn,
@@ -96,7 +102,7 @@ body {
 	$cloud-bgColor: #fff;
 
 	.toggle--daynight,
-	.toggle--gender {
+	.toggle--like {
 		.toggle--btn {
 			position: relative;
 			height: $toggleHeight;
@@ -161,23 +167,43 @@ body {
 		}
 
 		@keyframes starry_star {
-		  50% {
-			background-color: rgba(255,255,255,0.1);
-			box-shadow: #fff 30px -3px 0 0,
-						#fff 12px 10px 0 -1px,
-						rgba(255,255,255,0.1) 38px 18px 0 1px,
-						#fff 32px 34px 0 0,
-						rgba(255,255,255,0.1) 20px 24px 0 -1.5px,
-						#fff 5px 38px 0 1px;
+			50% {
+				background-color: rgba(255,255,255,0.1);
+				box-shadow: #fff 30px -3px 0 0,
+							#fff 12px 10px 0 -1px,
+							rgba(255,255,255,0.1) 38px 18px 0 1px,
+							#fff 32px 34px 0 0,
+							rgba(255,255,255,0.1) 20px 24px 0 -1.5px,
+							#fff 5px 38px 0 1px;
+			}
+		}
+		@keyframes bounceIn {
+			0% {
+				opacity: 0;
+				transform: scale(.3);
+			}
+			50% {
+				opacity: 100;
+				transform: scale(1.1);
+			}
+			55% {
+				transform: scale(1.1);
+			}
+			75% {
+				transform: scale(.9);
+			}
+			100% {
+				opacity: 100;
+				transform: scale(1);
 			}
 		}
 		//stars
 		.toggle--feature {
+			display: block;
 			position: absolute;
 			top: 9px;
 			left: 52.5%;
 			z-index: 20;
-			display: block;
 			width: 4px;
 			height: 4px;
 			border-radius: 50%;
@@ -248,39 +274,94 @@ body {
 		}
 	}
 
-	$bgColor--male: #333;
-	$borderColor--male: #666;
-	$toggleBtn-bgColor--male: #f1f1f1;
-	$toggleBtn-borderColor--male: #ccc;
+	/* ==========================================================================
+	   Like specific styling
+	   ========================================================================== */
 
-	$bgColor--female: #fff;
-	$borderColor--female: #333;
-	$toggleBtn-bgColor--female: #eee;
-	$toggleBtn-borderColor--female: #bbb;
+	$bgColor--sad: #3498db;
+	$borderColor--sad: #0865B0;
 
-	.toggle--gender {
+	$bgColor--happy: #e25d5d;
+	$borderColor--happy: #AD1000;
+
+	$emojiWidth: 36px;
+	$emojiBgColor: #f2dd68;
+	$emojiBorderColor: #e5ce5e;
+	$emojiColor: #995710;
+	$emojiColorAlt: #d8aa2b;
+
+	$toggleFeaturePosition--sad: ($toggleBtnRadius/2) - 14;
+	$toggleFeaturePosition--happy: 53px;
+
+	.toggle--like {
+		position: relative;
+
 		.toggle--btn {
-			border: $borderWidth solid $borderColor--male;
-			background-color: $bgColor--male;
+			border: $borderWidth solid $borderColor--sad;
+			background-color: $bgColor--sad;
 
 			//toggle button
 			&:before {
-				background-color: $toggleBtn-bgColor--male;
-				border: $borderWidth solid $toggleBtn-borderColor--male;
+				background-color: $emojiBgColor;
+				border: $borderWidth solid $emojiBorderColor;
 			}
+		}
+
+		.toggle--feature {
+			position: absolute;
+			left: 14px;
+			top: 32%;
+			width: 7px;
+			height: 7px;
+			border-radius: 50%;
+			background-color: $emojiColor;
+			box-shadow: ($emojiWidth - 8) 0 0 0 $emojiColor;
+
+			&:before {
+				position: absolute;
+				left: 0;
+				top: 11px;
+				width: $emojiWidth;
+				height: 17px;
+				background-color: $emojiColor;
+
+				border-radius: $emojiWidth $emojiWidth 0 0;
+			}
+			&:after {
+				position: absolute;
+				left: 9px;
+				top: 21px;
+				width: 17px;
+				height: 7px;
+				background-color: $emojiColorAlt;
+
+				border-radius: 17px 17px 0 0;
+			}
+
 		}
 
 		//what happens once checkbox is checked
 		.toggle--checkbox:checked {
 			 & + .toggle--btn {
-				background-color: $bgColor--female;
-				border: $borderWidth solid $borderColor--female;
+				background-color: $bgColor--happy;
+				border: $borderWidth solid $borderColor--happy;
 
 				//toggle button
 				&:before {
-					background-color: $toggleBtn-bgColor--female;
-					border: $borderWidth solid $toggleBtn-borderColor--female;
-					left: $toggleWidth - ($toggleBtnRadius) - ($borderWidth * 2) - 4px;
+					transform: translate($toggleWidth - ($toggleBtnRadius) - ($borderWidth * 2) - 8px);
+				}
+
+				& .toggle--feature {
+					transform: translateX($toggleFeaturePosition--happy);
+
+					&:before {
+						border-radius: 0 0 $emojiWidth $emojiWidth;
+						top: 11px;
+					}
+					&:after {
+						top: 21px;
+						border-radius: 50%/50%;
+					}
 				}
 			}
 		}
@@ -310,6 +391,7 @@ body {
 			height: $toggleHeight;
 			font-family: 'PT Sans', Sans Serif;
 			text-transform: uppercase;
+			font-weight: bold;
 
 			border-radius: 40px;
 			border: 1px solid $toggle-borderColor;
@@ -394,7 +476,7 @@ body {
 
 
 /* ==========================================================================
-   Toggle - knob stylee
+   Toggle - knob button style
    ========================================================================== */
 
 	$toggleHeight: 40px;
@@ -481,6 +563,251 @@ body {
 					& .toggle--feature {
 						&:before	{ left: -60%; }
 						&:after		{ right: 20%; }
+					}
+				}
+			}
+		}
+	}
+
+/* ==========================================================================
+   Toggle - switch stylee
+   ========================================================================== */
+
+	$toggleHeight: 44px;
+	$toggleWidth: 120px;
+
+	$toggleBtnWidth: 52px;
+	$toggleBtnColor: #2b2e3a;
+
+	$toggle-bgColor--inactive: #ca5046;
+	$toggle-bgColor--active: #a4bf4d;
+
+	$toggle-textColor: #fff;
+
+	.toggle--switch {
+
+		& .toggle--btn {
+			position: relative;
+			width: $toggleWidth;
+			height: $toggleHeight;
+
+			font-family: 'PT Sans', Sans Serif;
+			text-transform: uppercase;
+			color: $toggle-textColor;
+
+			// background: $toggle-bgColor--inactive;
+
+			background: linear-gradient(90deg, $toggle-bgColor--active 0%, $toggle-bgColor--active 50%, $toggle-bgColor--inactive 50%, $toggle-bgColor--inactive 200%);
+			background-position: -80px 0;
+			background-size: 200% 100%;
+			box-shadow: inset 0 0px 22px -8px #111;
+
+
+			&,
+			&:before {
+				border-radius: 4px;
+			}
+
+			//contains the actual knob part of the button and the 'on' text
+			&:before {
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+
+				width: $toggleBtnWidth;
+				height: $toggleHeight;
+				border: 2px solid #202027;
+				background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.15) 100%);
+				background-color: $toggleBtnColor;
+
+				background-size: 5px 5px;
+
+				text-indent: -100%;
+			}
+		}
+
+		& .toggle--feature {
+			position: relative;
+			display: block;
+			overflow: hidden;
+			height: $toggleHeight;
+			text-shadow: 0 1px 2px #666;
+
+			&:before,
+			&:after {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			&:before {
+				content: attr(data-label-on);
+				left: -60%;
+			}
+			&:after {
+				content: attr(data-label-off);
+				right: 16%;
+			}
+		}
+
+		& .toggle--checkbox {
+			display: none;
+
+			&:checked {
+				& + .toggle--btn {
+					// background: $toggle-bgColor--active;
+
+					background-position: 0 0;
+
+					&:before { left: calc(100% - #{$toggleBtnWidth}); }
+
+					& .toggle--feature {
+						&:before	{ left: 20%; }
+						&:after		{ right: -60%; }
+					}
+				}
+			}
+		}
+	}
+
+
+/* ==========================================================================
+   Push button toggle
+   ========================================================================== */
+
+	$toggleBtnRadius: 50px;
+	$toggleBtnColor: #f9f8f6;
+
+	$toggleShadowColor: #333;
+	$toggleActiveColor: #FF9900;
+	$toggleInactiveColor: #ccc;
+
+	.toggle--push {
+		& .toggle--btn {
+			position: relative;
+			width: $toggleBtnRadius;
+			height: $toggleBtnRadius;
+			background-color: $toggleBtnColor;
+			border-radius: 50%;
+
+			box-shadow: 0 5px 10px 0px $toggleShadowColor,
+						0 15px 20px 0px lighten($toggleShadowColor, 60%);
+
+			&,
+			&:before,
+			&:after {
+				transition-duration: 150ms;
+			}
+
+			&:before {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				width: $toggleBtnRadius / 2.2;
+				height: $toggleBtnRadius / 2.2;
+				border-radius: 50%;
+				background-color: $toggleActiveColor;
+
+				box-shadow: inset 0 0 0 5px $toggleInactiveColor,
+							inset 0 0 0 14px $toggleBtnColor;
+			}
+			&:after {
+				position: absolute;
+				left: 50%;
+				top: 35%;
+				transform: translate(-50%, -50%);
+				width: 4px;
+				height: 12px;
+				background-color: $toggleInactiveColor;
+				box-shadow: 0 0 0 2.5px $toggleBtnColor;
+			}
+
+			&:hover {
+				&:before {
+					box-shadow: inset 0 0 0 5px darken($toggleInactiveColor, 10%),
+						inset 0 0 0 14px $toggleBtnColor;
+				}
+				&:after {
+					background-color: darken($toggleInactiveColor, 10%);
+				}
+			}
+		}
+
+		& .toggle--checkbox {
+			display: none;
+
+			&:checked {
+				& + .toggle--btn {
+					box-shadow: 0 2px 5px 0px lighten($toggleShadowColor, 30%),
+						0 15px 20px 0px transparent;
+
+					&:before {
+						box-shadow: inset 0 0 0 5px $toggleActiveColor,
+									inset 0 0 0 14px $toggleBtnColor;
+					}
+					&:after {
+						background-color: $toggleActiveColor;
+					}
+				}
+			}
+		}
+	}
+
+	$toggleBgColor: #111;
+	$toggleBtnColor: #dfdfdf;
+
+	$toggleActiveColor: #0094e0;
+	$toggleInactiveColor: #aaa;
+
+	.toggle--push--glow {
+		background: $toggleBgColor;
+		padding: 50px 0;
+		margin-bottom: -50px;
+
+		& .toggle--btn {
+			background-color: $toggleBtnColor;
+			box-shadow: 0 5px 10px 0px $toggleShadowColor,
+						0 0 0 3px lighten($toggleBgColor, 20%),
+						0 0 8px 2px transparent,
+						0 0 0 6px lighten($toggleBgColor, 50%);
+
+			&:before {
+				box-shadow: inset 0 0 0 5px $toggleInactiveColor,
+							inset 0 0 0 14px $toggleBtnColor;
+			}
+			&:after {
+				background-color: $toggleInactiveColor;
+				box-shadow: 0 0 0 2.5px $toggleBtnColor;
+			}
+
+			&:hover {
+				&:before {
+					box-shadow: inset 0 0 0 5px darken($toggleInactiveColor, 20%),
+								inset 0 0 0 14px $toggleBtnColor;
+				}
+				&:after {
+					background-color: darken($toggleInactiveColor, 20%);
+				}
+			}
+		}
+
+		& .toggle--checkbox {
+
+			&:checked {
+				& + .toggle--btn {
+					box-shadow: 0 0px 8px 0 darken($toggleActiveColor, 10%),
+								0 0 0 3px $toggleActiveColor,
+								0 0 30px 0 $toggleActiveColor,
+								0 0 0 6px lighten($toggleBgColor, 40%);
+
+					&:before {
+						box-shadow: inset 0 0 0 5px $toggleActiveColor,
+									inset 0 0 0 14px $toggleBtnColor;
+					}
+					&:after {
+						background-color: $toggleActiveColor;
 					}
 				}
 			}
@@ -575,29 +902,4 @@ body {
 		}
 
 	}
-
-
-
-
-
-@keyframes bounceIn {
-	0% {
-		opacity: 0;
-		transform: scale(.3);
-	}
-	50% {
-		opacity: 100;
-		transform: scale(1.1);
-	}
-	55% {
-		transform: scale(1.1);
-	}
-	75% {
-		transform: scale(.9);
-	}
-	100% {
-		opacity: 100;
-		transform: scale(1);
-	}
-}
 
